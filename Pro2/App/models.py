@@ -8,7 +8,7 @@ class Course(models.Model):
     def __str__(self):
         return self.name
     
-class Project(models.Model):
+class Project(models.Model): #9
     topic = models.CharField(max_length=100)
     lang = models.CharField(max_length=100)
     duration = models.IntegerField()
@@ -20,6 +20,6 @@ class Student(models.Model):
     l_name = models.CharField(max_length= 100)
     email = models.EmailField()
     course = models.ManyToManyField(Course , related_name='students',blank=True)
-    project = models.ManyToManyField(Project , related_name='students',blank=True)
+    project = models.ManyToManyField(Project , related_name='students',blank=True) #9
     def __str__(self):
         return f"{self.f_name} {self.l_name}"

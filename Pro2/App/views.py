@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Course, Student ,Project
-from .forms import CourseForm, StudentForm ,ProjectForm
+from .models import Course, Student 
+from .models import Project #9
+from .forms import CourseForm, StudentForm 
+from .forms import ProjectForm #9
 
 def course_list(request):
     courses = Course.objects.all() 
-    projects = Project.objects.all()
-    return render(request, 'course_list.html', {'courses': courses , 'projects':projects})
+    projects = Project.objects.all() #add this line for 9th program or no need
+    return render(request, 'course_list.html', {'courses': courses , 'projects':projects}) #add 'projects':projects only for 9th 
 
 def course_details(request, id):
     course = get_object_or_404(Course, id=id)
@@ -32,12 +34,12 @@ def register_student(request):
         form = StudentForm()
     return render(request, 'register_student.html', {'form': form})
 
-def project_details(request, id):
+def project_details(request, id): #9
     project = get_object_or_404(Project, id=id)
     students = Student.objects.filter(project=project)
     return render(request, 'project_detail.html', {'project': project, 'students': students})
 
-def register_project(request):
+def register_project(request): #9
     if request.method == "POST":
         form = ProjectForm(request.POST)
         if form.is_valid():
