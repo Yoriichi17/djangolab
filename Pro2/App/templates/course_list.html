@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+<h1>Course List : </h1>
+<ol>
+    {% for course in courses %}
+   <li>
+    <a href="{% url 'course_details' course.id %}">{{ course.name }}</a>
+   </li>
+    {% endfor %}
+</ol>
+<ul>
+    <a href="{% url 'register_course' %}">Register Course</a>
+    <a href="{% url 'register_student' %}">Register Student</a>
+</ul>
+{%endblock %}

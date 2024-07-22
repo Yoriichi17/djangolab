@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+<h1>Students enrolled in {{course.name}} </h1>
+<ul>
+{% for student in students %}
+<li>{{student.f_name}}  {{student.l_name}}</li>
+{% empty %}
+<li>No students enrolled.</li>
+{% endfor %}
+</ul>
+{%endblock %}
