@@ -1,5 +1,5 @@
 from django import forms
-from .models import Course, Student
+from .models import Course, Student,Project
 
 class CourseForm(forms.ModelForm):
     class Meta:
@@ -9,4 +9,9 @@ class CourseForm(forms.ModelForm):
 class StudentForm(forms.ModelForm):
     class Meta:
         model = Student
-        fields = ['f_name', 'l_name', 'email', 'course']  
+        fields = ['f_name', 'l_name', 'email', 'course','project']  
+
+class ProjectForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = ['topic','lang','duration']

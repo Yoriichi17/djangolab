@@ -9,8 +9,20 @@
    </li>
     {% endfor %}
 </ol>
+<h2>Projects</h1>
+<ol>
+    {% for project in projects %}
+    <li>
+        <a href="{% url 'project_details' project.id %}">{{ project.topic }}</a>
+    </li>
+    {% empty %}
+    <li>No projects available.</li>
+    {% endfor %}
+</ol>
+
 <ul>
     <a href="{% url 'register_course' %}">Register Course</a>
     <a href="{% url 'register_student' %}">Register Student</a>
+    <a href="{% url 'register_project' %}">Register Project</a>
 </ul>
 {%endblock %}
