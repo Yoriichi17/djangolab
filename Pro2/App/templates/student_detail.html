@@ -1,0 +1,9 @@
+<!--Only create this for 10th-->
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+<h1>Student Details</h1>
+<p>First Name: {{ student.f_name }}</p>
+<p>Last Name: {{ student.l_name }}</p>
+<p>Email: {{ student.email }}</p>
+{%endblock %}

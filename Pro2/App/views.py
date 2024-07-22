@@ -3,6 +3,7 @@ from .models import Course, Student
 from .models import Project #9
 from .forms import CourseForm, StudentForm 
 from .forms import ProjectForm #9
+from django.views.generic import ListView, DetailView #10
 
 def course_list(request):
     courses = Course.objects.all() 
@@ -48,3 +49,17 @@ def register_project(request): #9
     else:
         form = ProjectForm()
     return render(request, 'register_project.html', {'form': form})
+
+
+
+
+
+class StudentListView(ListView):#10
+    model = Student
+    template_name = 'student_list.html'
+    context_object_name = 'students'
+
+class StudentDetailView(DetailView):#10
+    model = Student
+    template_name = 'student_detail.html'
+    context_object_name = 'student'

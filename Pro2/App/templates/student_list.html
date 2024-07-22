@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+<h1>List of Students</h1>
+<ul>
+    {% for student in students %}
+    <li>
+        <a href="{% url 'student_detail' student.id %}">{{ student.f_name }} {{ student.l_name }}</a>
+    </li>
+    {% empty %}
+    <li>No students available.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
+<!--Only create this for 10th-->
